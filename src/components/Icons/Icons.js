@@ -319,8 +319,8 @@ const Icons = () => {
           case "Document hash must be provided as a 64 character hex string":
             message = e.message;
             break;
-          case "Transaction input BCH amount is too low.  Add more BCH inputs to fund this transaction.":
-            message = "Not enough BCH. Deposit some funds to use this feature.";
+          case "Transaction input TENT amount is too low.  Add more TENT inputs to fund this transaction.":
+            message = "Not enough TENT. Deposit some funds to use this feature.";
             break;
           default:
             message = "Icon upload failed. Try again later";
@@ -378,31 +378,18 @@ const Icons = () => {
                         />
                       </Paragraph>
                     )}
-                    <Paragraph>You currently have 0 BCH.</Paragraph>
+                    <Paragraph>You currently have 0 TENT.</Paragraph>
 
                     {wallet ? (
                       <Paragraph>
-                        Deposit some BCH to your Mint wallet to enable SLP Icon Creation.
+                        Deposit some TENT to your Mint wallet to enable TENTSLP Icon Creation.
                       </Paragraph>
                     ) : (
                       <Paragraph>
-                        Go to the Portfolio page and Create a Wallet. Then deposit some BCH to use
-                        the SLP Icons tool.
+                        Go to the Portfolio page and Create a Wallet. Then deposit some TENT to use
+                        the TENTSLP Icons tool.
                       </Paragraph>
                     )}
-                    <Paragraph>
-                      Get free BCH from the{" "}
-                      <strong>
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href="https://free.bitcoin.com/"
-                        >
-                          Bitcoin.com Faucet
-                        </a>
-                      </strong>
-                      !
-                    </Paragraph>
                   </>
                 ) : (
                   <Form>

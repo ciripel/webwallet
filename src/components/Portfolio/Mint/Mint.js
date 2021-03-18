@@ -72,9 +72,9 @@ const Mint = ({ token, onClose }) => {
       if (/don't have the minting baton/.test(e.message)) {
         message = e.message;
       } else if (/Invalid BCH address/.test(e.message)) {
-        message = "Invalid BCH address";
+        message = "Invalid TENT address";
       } else if (/Transaction input BCH amount is too low/.test(e.message)) {
-        message = "Not enough BCH. Deposit some funds to use this feature.";
+        message = "Not enough TENT. Deposit some funds to use this feature.";
       } else if (!e.error) {
         message = `Transaction failed: no response from ${getRestUrl()}.`;
       } else if (/Could not communicate with full node or other external service/.test(e.error)) {
@@ -119,7 +119,7 @@ const Mint = ({ token, onClose }) => {
                   <StyledButtonWrapper>
                     <>
                       <Paragraph>
-                        You currently have 0 BCH. Deposit some funds to use this feature.
+                        You currently have 0 TENT. Deposit some funds to use this feature.
                       </Paragraph>
                       <Paragraph>
                         <QRCode id="borderedQRCode" address={wallet.Path145.cashAddress} />
@@ -135,11 +135,11 @@ const Mint = ({ token, onClose }) => {
                     <FormItemWithQRCodeAddon
                       validateStatus={!formData.dirty && !formData.baton ? "error" : ""}
                       help={
-                        !formData.dirty && !formData.baton ? "Should be a valid slp address" : ""
+                        !formData.dirty && !formData.baton ? "Should be a valid tentslp address" : ""
                       }
                       onScan={result => setFormData({ ...formData, address: result })}
                       inputProps={{
-                        placeholder: "Baton (slp address)",
+                        placeholder: "Baton (tentslp address)",
                         name: "baton",
                         onChange: e => handleChange(e),
                         required: true,

@@ -75,7 +75,7 @@ export const StyledButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-const SLP_TOKEN_ICONS_URL = "https://tokens.bch.sx/64";
+const SLP_TOKEN_ICONS_URL = "https://tokens.tent.app/64";
 
 const PayDividends = (SLP, { token, onClose, bordered = false }) => {
   const { wallet, balances, slpBalancesAndUtxos } = React.useContext(WalletContext);
@@ -155,7 +155,7 @@ const PayDividends = (SLP, { token, onClose, bordered = false }) => {
       if (/don't have the minting baton/.test(e.message)) {
         message = e.message;
       } else if (/Invalid BCH address/.test(e.message)) {
-        message = "Invalid BCH address";
+        message = "Invalid TENT address";
       } else if (/64: dust/.test(e.message)) {
         message = "Small amount";
       } else if (/Balance 0/.test(e.message)) {
@@ -262,7 +262,7 @@ const PayDividends = (SLP, { token, onClose, bordered = false }) => {
                     <StyledButtonWrapper>
                       <>
                         <Paragraph>
-                          You currently have 0 BCH. Deposit some funds to use this feature.
+                          You currently have 0 TENT. Deposit some funds to use this feature.
                         </Paragraph>
                         <Paragraph>
                           <QRCode id="borderedQRCode" address={wallet.Path145.cashAddress} />
@@ -334,7 +334,7 @@ const PayDividends = (SLP, { token, onClose, bordered = false }) => {
                     &nbsp; &nbsp; &nbsp;
                     <Col>
                       <Tooltip
-                        title={`To be eligible, addresses must have an SLP balance such that their proportional share of your dividend payment is greater than ${DUST} BCH`}
+                        title={`To be eligible, addresses must have a TENTSLP balance such that their proportional share of your dividend payment is greater than ${DUST} TENT`}
                       >
                         <StyledStat>
                           <Icon type="usergroup-add" />
@@ -452,7 +452,7 @@ const PayDividends = (SLP, { token, onClose, bordered = false }) => {
                             /^[A-Fa-f0-9]{64}$/g.test(formData.tokenId) &&
                             tokenInfo &&
                             !loading
-                              ? `Must be greater than ${DUST} BCH ${
+                              ? `Must be greater than ${DUST} TENT ${
                                   stats.maxAmount > 0
                                     ? `and lower or equal to ${stats.maxAmount}`
                                     : ""
@@ -461,7 +461,7 @@ const PayDividends = (SLP, { token, onClose, bordered = false }) => {
                           }
                           onMax={onMaxAmount}
                           inputProps={{
-                            suffix: "BCH",
+                            suffix: "TENT",
                             name: "amount",
                             placeholder: "Amount",
                             onChange: e => handleChange(e),

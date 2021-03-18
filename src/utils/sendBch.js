@@ -84,7 +84,7 @@ export const sendBch = withSLP(
       for (let i = 0; i < addresses.length; i++) {
         const address = addresses[i];
         transactionBuilder.addOutput(
-          SLP.Address.toCashAddress(address),
+          SLP.Address.toLegacyAddress(address),
           SLP.BitcoinCash.toSatoshi(Number(values[i]).toFixed(8))
         );
       }
@@ -118,9 +118,9 @@ export const sendBch = withSLP(
         callbackTxId(txidStr)
       }
       if (NETWORK === `mainnet`) {
-        link = `https://explorer.bitcoin.com/bch/tx/${txidStr}`;
+        link = `https://explorer.tent.app/tx/${txidStr}`;
       } else {
-        link = `https://explorer.bitcoin.com/tbch/tx/${txidStr}`;
+        link = `https://explorer.tent.app/tx/${txidStr}`;
       }
       console.log(link);
 

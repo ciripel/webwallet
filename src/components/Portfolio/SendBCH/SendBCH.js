@@ -28,7 +28,6 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
   const [loading, setLoading] = useState(false);
   const [action, setAction] = useState("send");
   const [history, setHistory] = useState(null);
-  const [bchToDollar, setBchToDollar] = useState(null);
 
   useEffect(() => setAction("send"), [outerAction]);
 
@@ -113,15 +112,6 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
         details.map(detail => detail.transactions),
         tokens
       );
-      await fetch("https://markets.api.bitcoin.com/live/bitcoin")
-        .then(response => {
-          console.log("response :", response);
-          return response.json();
-        })
-        .then(myJson => {
-          console.log("myJson.data.BCH :", myJson.data.BCH);
-          setBchToDollar(myJson.data.BCH);
-        });
       setHistory(resp);
     } catch (err) {
       const message = err.message || err.error || JSON.stringify(err);
@@ -199,7 +189,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                   <StyledButtonWrapper>
                     <>
                       <Paragraph>
-                        You currently have 0 BCH. Deposit some funds to use this feature.
+                        You currently have 0 TENT. Deposit some funds to use this feature.
                       </Paragraph>
                       <Paragraph>
                         <QRCode id="borderedQRCode" address={wallet.Path145.cashAddress} />
@@ -218,13 +208,13 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                         validateStatus={!formData.dirty && !formData.address ? "error" : ""}
                         help={
                           !formData.dirty && !formData.address
-                            ? "Should be a valid bch address"
+                            ? "Should be a valid TENT address"
                             : ""
                         }
                         onScan={result => setFormData({ ...formData, address: result })}
                         inputProps={{
                           disabled: Boolean(filledAddress),
-                          placeholder: "BCH Address",
+                          placeholder: "TENT Address",
                           name: "address",
                           onChange: e => handleChange(e),
                           required: true,
@@ -244,7 +234,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                         inputProps={{
                           name: "value",
                           placeholder: "Amount",
-                          suffix: "BCH",
+                          suffix: "TENT",
                           onChange: e => handleChange(e),
                           required: true,
                           value: formData.value
@@ -278,7 +268,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                       }}
                     >
                       <a
-                        href={`https://explorer.bitcoin.com/bch/tx/${el.txid}`}
+                        href={`https://explorer.tent.app/tx/${el.txid}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -289,14 +279,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                             {" "}
                             <p>{`${el.transactionBalance.balance > 0 ? "+" : ""}${
                               el.transactionBalance.balance
-                            } BCH`}</p>
-                            <p>{`${el.transactionBalance.balance > 0 ? "+$" : "-$"}${
-                              (Math.abs(el.transactionBalance.balance) * bchToDollar)
-                                .toFixed(2)
-                                .toString() === "0.00"
-                                ? 0.01
-                                : (Math.abs(el.transactionBalance.balance) * bchToDollar).toFixed(2)
-                            } USD`}</p>
+                            } TENT`}</p>
                             {el.transactionBalance.type.includes("MintDividend") && (
                               <>
                                 <h4>Outputs:</h4>
@@ -317,7 +300,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                                     </Paragraph>
                                     <p style={{ marginTop: "-20px" }}>{`amount: ${
                                       output.amount > 0 ? "+" : ""
-                                    }${output.amount} BCH`}</p>
+                                    }${output.amount} TENT`}</p>
                                   </>
                                 ))}
 
@@ -353,7 +336,7 @@ const SendBCH = ({ onClose, outerAction, filledAddress, showCardHeader, callback
                     </div>
                   ))}
                   <a
-                    href={`https://explorer.bitcoin.com/bch/address/${wallet.Path145.cashAddress}`}
+                    href={`https://explorer.tent.app/address/${wallet.Path145.cashAddress}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

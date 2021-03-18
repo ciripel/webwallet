@@ -2,7 +2,7 @@ import withSLP from "./withSLP";
 
 const deriveAccount = withSLP((SLPInstance, { masterHDNode, path }) => {
   const node = SLPInstance.HDNode.derivePath(masterHDNode, path);
-  const cashAddress = SLPInstance.HDNode.toCashAddress(node);
+  const cashAddress = SLPInstance.HDNode.toLegacyAddress(node);
   const slpAddress = SLPInstance.Address.toSLPAddress(cashAddress);
 
   return {
@@ -23,8 +23,8 @@ const getWalletDetails = (SLPInstance, wallet) => {
   if (NETWORK === `mainnet`) masterHDNode = SLPInstance.HDNode.fromSeed(rootSeedBuffer);
   else masterHDNode = SLPInstance.HDNode.fromSeed(rootSeedBuffer, "testnet");
 
-  const Path245 = deriveAccount({ masterHDNode, path: "m/44'/245'/0'/0/0" });
-  const Path145 = deriveAccount({ masterHDNode, path: "m/44'/145'/0'/0/0" });
+  const Path245 = deriveAccount({ masterHDNode, path: "m/44'/1410'/0'/0/0" });
+  const Path145 = deriveAccount({ masterHDNode, path: "m/44'/410'/0'/0/0" });
   const PathZero = deriveAccount({ masterHDNode, path: "m/44'/0'/0'/0/0" });
   const Accounts = [Path245, Path145];
 

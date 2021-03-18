@@ -418,7 +418,7 @@ const Create = () => {
     const { tokenName, tokenSymbol, documentUri, amount, decimals, fixedSupply } = data;
 
     try {
-      const docUri = documentUri || "mint.bitcoin.com";
+      const docUri = documentUri || "mint.tent.app";
       const link = await createToken(wallet, {
         name: tokenName,
         symbol: tokenSymbol,
@@ -468,7 +468,7 @@ const Create = () => {
             message: "Error",
             description: (
               <a
-                href={"https://github.com/kosinusbch/slp-token-icons#adding-your-icon"}
+                href={"https://github.com/TENTSLP/tentslp-token-icons#adding-your-icon"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -506,8 +506,8 @@ const Create = () => {
           case "Document hash must be provided as a 64 character hex string":
             message = e.message;
             break;
-          case "Transaction input BCH amount is too low.  Add more BCH inputs to fund this transaction.":
-            message = "Not enough BCH. Deposit some funds to use this feature.";
+          case "Transaction input TENT amount is too low.  Add more TENT inputs to fund this transaction.":
+            message = "Not enough TENT. Deposit some funds to use this feature.";
             break;
           default:
             message = "Transaction Failed. Try again later";
@@ -564,23 +564,10 @@ const Create = () => {
                           address={wallet && wallet.Path145.cashAddress}
                         />
                       </Paragraph>
-                      <Paragraph>You currently have 0 BCH.</Paragraph>
+                      <Paragraph>You currently have 0 TENT.</Paragraph>
                       <Paragraph>
-                        Deposit some BCH in order to pay for the transaction that will generate the
+                        Deposit some TENT in order to pay for the transaction that will generate the
                         token.
-                      </Paragraph>
-                      <Paragraph>
-                        Get free BCH from the{" "}
-                        <strong>
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://free.bitcoin.com/"
-                          >
-                            Bitcoin.com Faucet
-                          </a>
-                        </strong>
-                        !
                       </Paragraph>
                     </>
                   ) : null}
@@ -874,17 +861,7 @@ const Create = () => {
                             message={
                               <>
                                 <Icon type="info-circle" /> The document hash is a sha256 hash of
-                                the whitepaper for your token. You can create a hash of any
-                                document, and learn more about its use, at
-                                <strong>
-                                  <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href="https://notary.bitcoin.com"
-                                  >
-                                    {` notary.bitcoin.com`}
-                                  </a>
-                                </strong>
+                                the whitepaper for your token. You can create a hash of any document
                                 . Click on the input below to hash the file.
                               </>
                             }
@@ -963,7 +940,7 @@ const Create = () => {
 
                         <Form.Item>
                           <Input
-                            placeholder="token website e.g.: developer.bitcoin.com"
+                            placeholder="token website e.g.: developer.tent.app"
                             name="documentUri"
                             onChange={e => handleChange(e)}
                             required

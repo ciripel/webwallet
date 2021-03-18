@@ -3,8 +3,6 @@ import { WalletContext } from "../../utils/context";
 import { Input, Button, Icon, Row, Col, Card, Form, Collapse } from "antd";
 import Img from "react-image";
 import StyledOnboarding from "../Common/StyledOnBoarding";
-import bitcoinWalletLogo from "../../assets/bitcoin-com-wallet-icon.png";
-import badgerWalletLogo from "../../assets/badger-icon.png";
 import pixelSquareLogo from "../../assets/pixel-square-icon.png";
 
 export const OnBoarding = ({ history }) => {
@@ -84,7 +82,7 @@ export const OnBoarding = ({ history }) => {
                         width="16"
                         height="16"
                       />{" "}
-                      mint.bitcoin.com wallet
+                      mint.tent.app wallet
                     </>
                   }
                   key="1"
@@ -131,22 +129,22 @@ export const OnBoarding = ({ history }) => {
           >
             <div style={{}}>
               <p>
-                Bitcoin.com Mint is an{" "}
+                TENT.app Mint is an{" "}
                 <a
-                  href="https://github.com/Bitcoin-com/mint/"
+                  href="https://github.com/TENTSLP/mint/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   open source,
                 </a>{" "}
-                non-custodial web wallet supporting SLP and BCH.{" "}
+                non-custodial web wallet supporting TENTSLP and TENT.{" "}
               </p>
               <p>
                 {" "}
                 Web wallets offer user convenience, but storing large amounts of money on a web
                 wallet is not recommended.
               </p>
-              <p>Creating your own SLP tokens only costs a few cents worth of BCH.</p>
+              <p>Creating your own TENTSLP tokens only costs a few cents worth of TENT.</p>
             </div>
           </Card>
         </Col>

@@ -29,7 +29,7 @@ import { OnBoarding } from "../OnBoarding/OnBoarding";
 import getTokenTransactionHistory from "../../utils/getTokenTransactionHistory";
 import bchFlagLogo from "../../assets/4-bitcoin-cash-logo-flag.png";
 
-export const SLP_TOKEN_ICONS_URL = "https://tokens.bch.sx/64";
+export const SLP_TOKEN_ICONS_URL = "https://tokens.tent.app/64";
 export const BITCOIN_DOT_COM_ICONS_URL = "https://tokens.bitcoin.com/64";
 
 export const StyledCollapse = styled(Collapse)`
@@ -78,7 +78,7 @@ export default () => {
   const getImgs = doc => {
     return Array.from(doc.images)
       .filter(
-        img => img.currentSrc.includes("tokens.bch.sx") || img.currentSrc.includes("https://icons.")
+        img => img.currentSrc.includes("tokens.tent.app") || img.currentSrc.includes("https://icons.")
       )
       .map(
         img =>
@@ -251,7 +251,7 @@ export default () => {
                   }}
                 >
                   <div style={{ fontSize: "16px", fontWeight: "bold", color: "rgb(62, 63, 66)" }}>
-                    BCH
+                    TENT
                   </div>
                   <div
                     style={{
@@ -261,7 +261,7 @@ export default () => {
                       whiteSpace: "nowrap"
                     }}
                   >
-                    Bitcoin Cash
+                    TENT
                   </div>
                 </div>
               }
@@ -430,7 +430,7 @@ export default () => {
                             >
                               {el.detail.transactionType !== "BURN_ALL" ? (
                                 <a
-                                  href={`https://explorer.bitcoin.com/bch/tx/${el.txid}`}
+                                  href={`https://slpexplorer.tent.app/#tx/${el.txid}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
@@ -485,7 +485,7 @@ export default () => {
                             </div>
                           ))}
                           <a
-                            href={`https://explorer.bitcoin.com/bch/address/${wallet.Path245.slpAddress}`}
+                            href={`https://slpexplorer.tent.app/#address/${wallet.Path245.slpAddress}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >

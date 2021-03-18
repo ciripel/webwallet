@@ -60,11 +60,11 @@ const Transfer = ({ token, onClose }) => {
       } else if (/has no matching Script/.test(e.message)) {
         message = "Invalid address";
       } else if (/Transaction input BCH amount is too low/.test(e.message)) {
-        message = "Not enough BCH. Deposit some funds to use this feature.";
+        message = "Not enough TENT. Deposit some funds to use this feature.";
       } else if (/Token Receiver Address must be simpleledger format/.test(e.message)) {
         message = "Token Receiver Address must be simpleledger format.";
       } else if (/Invalid BCH address. Double check your address is valid/.test(e.message)) {
-        message = "Invalid SLP address. Double check your address is valid.";
+        message = "Invalid TENTSLP address. Double check your address is valid.";
       } else if (!e.error) {
         message = `Transaction failed: no response from ${getRestUrl()}.`;
       } else if (/Could not communicate with full node or other external service/.test(e.error)) {
@@ -113,7 +113,7 @@ const Transfer = ({ token, onClose }) => {
                   <StyledButtonWrapper>
                     <>
                       <Paragraph>
-                        You currently have 0 BCH. Deposit some funds to use this feature.
+                        You currently have 0 TENT. Deposit some funds to use this feature.
                       </Paragraph>
                       <Paragraph>
                         <QRCode id="borderedQRCode" address={wallet.Path145.cashAddress} />
@@ -129,11 +129,11 @@ const Transfer = ({ token, onClose }) => {
                     <FormItemWithQRCodeAddon
                       validateStatus={formData.dirty && !formData.address ? "error" : ""}
                       help={
-                        formData.dirty && !formData.address ? "Should be a valid slp address" : ""
+                        formData.dirty && !formData.address ? "Should be a valid tentslp address" : ""
                       }
                       onScan={result => setFormData({ ...formData, address: result })}
                       inputProps={{
-                        placeholder: "SLP Address",
+                        placeholder: "TENTSLP Address",
                         name: "address",
                         onChange: e => handleChange(e),
                         required: true,

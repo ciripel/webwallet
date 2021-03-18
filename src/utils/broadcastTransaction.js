@@ -46,9 +46,9 @@ const broadcastTransaction = async (SLPInstance, wallet, { ...args }) => {
 
     let link;
     if (NETWORK === `mainnet`) {
-      link = `https://explorer.bitcoin.com/bch/tx/${broadcastedTransaction}`;
+      link = `https://explorer.tent.app/tx/${broadcastedTransaction}`;
     } else {
-      link = `https://explorer.bitcoin.com/tbch/tx/${broadcastedTransaction}`;
+      link = `https://explorer.tent.app/tx/${broadcastedTransaction}`;
     }
 
     return link;

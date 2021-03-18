@@ -21,7 +21,7 @@ export default () => {
             <Text>
               Check the open source code{" "}
               <a
-                href="https://github.com/Bitcoin-com/mint"
+                href="https://github.com/TENTSLP/mint"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -33,9 +33,9 @@ export default () => {
             <Text>Check and/or change the REST API in Configure. </Text>
             <br />
             <Text>
-              Install, build and run Bitcoin.com Mint{" "}
+              Install, build and run TENT.app Mint{" "}
               <a
-                href="https://github.com/Bitcoin-com/mint#running-locally"
+                href="https://github.com/TENTSLP/mint#running-locally"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -46,8 +46,8 @@ export default () => {
             <br />
             <Text>
               Join our{" "}
-              <a href="https://t.me/piticocash" rel="noopener noreferrer" target="_blank">
-                public telegram group
+              <a href="https://discord.gg/78rVJcH" rel="noopener noreferrer" target="_blank">
+                public discord group
               </a>
               .
             </Text>

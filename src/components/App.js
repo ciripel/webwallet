@@ -216,7 +216,7 @@ const App = () => {
             }
           >
             <div className="logo">
-              <img src={logo} alt="Bitcoin.com Mint" />
+              <img src={logo} alt="TENT.app Mint" />
             </div>
             <div
               style={{
@@ -261,49 +261,6 @@ const App = () => {
                 <Menu.Item key="audit">
                   <Link to="/audit">Audit</Link>
                 </Menu.Item>
-                {!isCountryBanned && wallet && (
-                  <Menu.Item key="satoshi-dice">
-                    <Link to="/satoshi-dice">Satoshi Dice</Link>
-                  </Menu.Item>
-                )}
-                <Menu.SubMenu key="links" title={<span>Links</span>}>
-                  <Menu.Item key="link-trade-locally">
-                    {" "}
-                    <a href="https://send.bitcoin.com" target="_blank" rel="noopener noreferrer">
-                      Send BCH by Email
-                    </a>
-                  </Menu.Item>
-                  <Menu.Item key="link-faucet">
-                    <a href="https://free.bitcoin.com/" target="_blank" rel="noopener noreferrer">
-                      Faucet (Free BCH)
-                    </a>
-                  </Menu.Item>
-                  <Menu.Item key="link-exchange">
-                    <a
-                      href="https://exchange.bitcoin.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Exchange
-                    </a>
-                  </Menu.Item>
-                  <Menu.Item key="link-games">
-                    {" "}
-                    <a
-                      href="https://cashgames.bitcoin.com/home"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Games
-                    </a>
-                  </Menu.Item>
-                  <Menu.Item key="link-trade-locally">
-                    {" "}
-                    <a href="https://local.bitcoin.com" target="_blank" rel="noopener noreferrer">
-                      Trade Locally
-                    </a>
-                  </Menu.Item>
-                </Menu.SubMenu>
               </Menu.ItemGroup>
 
               {wallet ? (
@@ -342,7 +299,7 @@ const App = () => {
                         value="slpAddress"
                         onClick={e => handleChangeAddress(e)}
                       >
-                        SLP Tokens
+                        TENTSLP Tokens
                       </Radio.Button>
                       <Radio.Button
                         style={{
@@ -353,7 +310,7 @@ const App = () => {
                         value="cashAddress"
                         onClick={e => handleChangeAddress(e)}
                       >
-                        Bitcoin Cash
+                        TENT
                       </Radio.Button>
                     </Radio.Group>
                   </div>
