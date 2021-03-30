@@ -3,7 +3,7 @@ import "antd/dist/antd.less";
 import "../index.css";
 import styled from "styled-components";
 import { useSwipeable } from "react-swipeable";
-import { Layout, Menu, Radio, Tabs, Icon } from "antd";
+import { Layout, Menu, Tabs, Icon } from "antd";
 import Portfolio from "./Portfolio/Portfolio";
 import Icons from "./Icons/Icons";
 import Create from "./Create/Create";
@@ -83,13 +83,12 @@ const StyledTabsMenu = styled.div`
 const App = () => {
   const [collapsed, setCollapsed] = React.useState(window.innerWidth < 768);
   const [mobile, setMobile] = React.useState(false);
-  const [address, setAddress] = React.useState("slpAddress");
+  const address = React.useState("slpAddress");
   const [pixelRatio, setPixelRatio] = React.useState(1);
   const [isCountryBanned, setIsCountryBanned] = React.useState(false);
 
   const ContextValue = React.useContext(WalletContext);
   const { wallet } = ContextValue;
-  const radio = React.useRef(null);
   const location = useLocation();
   const history = useHistory();
   const selectedKey = location && location.pathname ? location.pathname.substr(1) : "";
@@ -104,9 +103,9 @@ const App = () => {
     }, 100);
   };
 
-  const handleChangeAddress = e => {
-    setAddress(address === "cashAddress" ? "slpAddress" : "cashAddress");
-  };
+  // const handleChangeAddress = e => {
+  //   setAddress(address === "cashAddress" ? "slpAddress" : "cashAddress");
+  // };
 
   const handleResize = () => {
     setMobile(window.innerWidth < 768);
@@ -237,15 +236,15 @@ const App = () => {
                 <Menu.Item key="portfolio">
                   <Link to="/portfolio">Portfolio</Link>
                 </Menu.Item>
-                {wallet && (
+                {/* {wallet && (
                   <Menu.Item key="create">
                     <Link to="/create">Create</Link>
                   </Menu.Item>
-                )}
-                <Menu.Item key="icons">
+                )} */}
+                {/* <Menu.Item key="icons">
                   <Link to="/icons">Icons</Link>
-                </Menu.Item>
-                {wallet && (
+                </Menu.Item> */}
+                {/* {wallet && (
                   <Menu.SubMenu key="dividends" title={<span>Dividends</span>}>
                     <Menu.Item key="pay-dividends">
                       <Link to="/pay-dividends">Pay Dividends</Link>
@@ -254,13 +253,13 @@ const App = () => {
                       <Link to="/dividends-history">Dividends History</Link>
                     </Menu.Item>
                   </Menu.SubMenu>
-                )}
+                )} */}
                 <Menu.Item key="configure">
                   <Link to="/configure">Configure</Link>
                 </Menu.Item>
-                <Menu.Item key="audit">
+                {/* <Menu.Item key="audit">
                   <Link to="/audit">Audit</Link>
-                </Menu.Item>
+                </Menu.Item> */}
               </Menu.ItemGroup>
 
               {wallet ? (
@@ -276,14 +275,14 @@ const App = () => {
                         id="borderedQRCode"
                         pixelRatio={pixelRatio}
                         address={
-                          address === "slpAddress"
+                          address === "cashAddress"
                             ? wallet.Path245.slpAddress
                             : wallet.Path145.cashAddress
                         }
                       />
                     </div>
 
-                    <Radio.Group
+                    {/* <Radio.Group
                       defaultValue="slpAddress"
                       value={address}
                       size="small"
@@ -312,7 +311,7 @@ const App = () => {
                       >
                         TENT
                       </Radio.Button>
-                    </Radio.Group>
+                    </Radio.Group> */}
                   </div>
                 </Menu.ItemGroup>
               ) : null}
