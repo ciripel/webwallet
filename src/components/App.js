@@ -285,16 +285,6 @@ const App = () => {
                     }
                     key="portfolio"
                   />
-                  <TabPane
-                    tab={
-                      <span onClick={() => history.push("/create")}>
-                        <Icon type="plus-square" theme="filled" />
-                        Create
-                      </span>
-                    }
-                    key="create"
-                    disabled={!wallet}
-                  />
                 </Tabs>
               </Footer>
             </StyledTabsMenu>
